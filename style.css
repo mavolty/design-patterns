@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* ==========
+Custom Properties
+========== */
+
+:root {
+  --ff-inter: 'Inter', sans-serif;
+
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 1.875rem;
+
+  --fw-reg: 400;
+  --fw-sb: 600;
+
+  --lh-28: 1.75rem;
+  --lh-32: 2rem;
+  --lh-38: 2.375rem;
+
+  --clr-rose-50: #fff1f3;
+  --clr-rose-400: #fd6f8e;
+
+  --clr-gray-50: #f9fafb;
+  --clr-gray-100: #f2f4f7;
+  --clr-gray-400: #98a2b3;
+  --clr-gray-500: #667085;
+  --clr-gray-600: #475467;
+  --clr-gray-900: #101828;
+}
+
+/* ==========
+Reset
+========== */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========
+Base Styles
+========== */
+
+body {
+  font-family: var(--ff-inter);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-reg);
+  line-height: var(--lh-28);
+  color: var(--clr-gray-600);
+  background-color: var(--clr-gray-50);
+}
+
+p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+section:not(:first-child) {
+  padding-top: 4rem;
+}
+
+ul:not([class]),
+ol:not([class]) {
+  line-height: var(--lh-28);
+  margin-block: 2rem;
+}
+
+ul:not([class]) > * + *,
+ol:not([class]) > * + * {
+  margin-top: 0.5rem;
+}
+
+code {
+  color: var(--clr-rose-400);
+  background-color: var(--clr-gray-100);
+}
+
+strong {
+  font-weight: var(--fw-sb);
+}
+
+.nav-logo,
+.hamburger,
+.close {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* ==========
+Typography
+========== */
+
+.display-sm {
+  color: var(--clr-gray-900);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-sb);
+  line-height: var(--lh-32);
+  margin-bottom: 1.5rem;
+}
+
+.display-md {
+  color: var(--clr-gray-900);
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-sb);
+  line-height: var(--lh-38);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========
+General
+========== */
+
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+.menu {
+  position: fixed;
+  z-index: 10;
+  top: 2%;
+  left: 3%;
+}
+
+@media screen and (min-width: 600px) {
+  .menu {
+    top: 1%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .menu {
+    display: none;
+  }
+}
+
+.hamburger.hamburger--active {
+  display: none;
+}
+
+.close {
+  display: none;
+  position: fixed;
+}
+
+.close.close--active {
+  display: block;
+}
+
+.sidebar {
+  background-color: var(--clr-gray-100);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  padding-right: 2rem;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  transform: translateX(-105%);
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media screen and (min-width: 900px) {
+  .sidebar {
+    background-color: inherit;
+    position: sticky;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .sidebar {
+    padding-inline: 2rem;
+  }
+}
+
+.sidebar.sidebar--active {
+  transform: translateX(0);
+}
+
+.nav-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-block: 1.25rem;
+}
+
+.nav-title {
+  color: var(--clr-rose-400);
+  font-weight: var(--fw-sb);
+}
+
+.nav-content {
+  padding: 0;
+}
+
+@media screen and (min-width: 900px) {
+  main {
+    padding-inline: 2rem;
+  }
+}
+
+.main-search {
+  background-color: var(--clr-gray-50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  margin-bottom: 2rem;
+  padding-block: 1.25rem;
+}
+
+@media screen and (min-width: 600px) {
+  .main-search {
+    margin-left: unset;
+  }
+}
+
+.main-search-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.main-search-input {
+  color: var(--clr-gray-600);
+  background-color: transparent;
+  width: 50%;
+  border: none;
+  outline: none;
+}
+
+.main-search-input::placeholder {
+  color: var(--clr-gray-500);
+}
+
+.nav-content > * + * {
+  margin-top: 1.5rem;
+}
+
+.nav-link {
+  color: var(--clr-gray-500);
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--clr-gray-900);
+}

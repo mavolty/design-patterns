@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Design Pattern</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="menu">
+        <img src="./assets/hamburger.svg" alt="Hamburger" class="hamburger" />
+        <img src="./assets/close.svg" alt="Close" class="close" />
+      </div>
+      <aside class="sidebar">
+        <nav id="navbar" class="nav">
+          <div class="nav-head">
+            <img src="./assets/logo.png" class="nav-logo" />
+            <header class="nav-title">Design Pattern</header>
+          </div>
+
+          <ul role="list" class="nav-content">
+            <li class="nav-item">
+              <a href="#Introduction" class="nav-link">Introduction </a>
+            </li>
+            <li class="nav-item">
+              <a href="#What_is_a_pattern?" class="nav-link"
+                >What is a pattern?</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href='#"Pattern"-ity_Testing,_Proto-Patterns_&_The_Rule_Of_Three'
+                class="nav-link"
+                >"Pattern"-ity Testing, Proto-Patterns & The Rule Of Three</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#The_Structure_Of_A_Design_Pattern" class="nav-link"
+                >The Structure Of A Design Pattern</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#Writing_Design_Patterns" class="nav-link"
+                >Writing Design Patterns</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#Anti-Patterns" class="nav-link">Anti-Patterns</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#Categories_Of_Design_Pattern" class="nav-link"
+                >Categories Of Design Pattern</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#Design_Pattern_Categorization" class="nav-link"
+                >Design Pattern Categorization</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main id="main-doc">
+        <div class="main-search">
+          <img src="./assets/search.svg" class="main-search-icon" />
+          <input
+            type="search"
+            id="search"
+            class="main-search-input"
+            placeholder="Search"
+          />
+        </div>
+        <section class="main-section" id="Introduction">
+          <header class="display-md">Introduction</header>
+
+          <p>
+            One of the most important aspects of writing maintainable code is
+            being able to notice the recurring themes in that code and optimize
+            them. This is an area where knowledge of design patterns can prove
+            invaluable.
+          </p>
+
+          <p>
+            In the first part of this book, we will explore the history and
+            importance of design patterns which can really be applied to any
+            programming language. If you're already sold on or are familiar with
+            this history, feel free to skip to the chapter "What is a Pattern?"
+            to continue reading.
+          </p>
+
+          <p>
+            Design patterns can be traced back to the early work of an architect
+            named Christopher Alexander. He would often write publications about
+            his experience in solving design issues and how they related to
+            buildings and towns. One day, it occurred to Alexander that when
+            used time and time again, certain design constructs lead to a
+            desired optimal effect.
+          </p>
+
+          <p>
+            In collaboration with Sara Ishikawa and Murray Silverstein,
+            Alexander produced a pattern language that would help empower anyone
+            wishing to design and build at any scale. This was published back in
+            1977 in a paper titled "A Pattern Language", which was later
+            released as a complete hardcover book.
+          </p>
+
+          <p>
+            Some 30 years ago, software engineers began to incorporate the
+            principles Alexander had written about into the first documentation
+            about design patterns, which was to be a guide for novice developers
+            looking to improve their coding skills. It's important to note that
+            the concepts behind design patterns have actually been around in the
+            programming industry since its inception, albeit in a less
+            formalized form.
+          </p>
+
+          <p>
+            One of the first and arguably most iconic formal works published on
+            design patterns in software engineering was a book in 1995 called
+            Design Patterns: Elements Of Reusable Object-Oriented Software. This
+            was written by Erich Gamma, Richard Helm, Ralph Johnson and John
+            Vlissides - a group that became known as the Gang of Four (or GoF
+            for short).
+          </p>
+
+          <p>
+            The GoF's publication is considered quite instrumental to pushing
+            the concept of design patterns further in our field as it describes
+            a number of development techniques and pitfalls as well as providing
+            twenty-three core Object-Oriented design patterns frequently used
+            around the world today. We will be covering these patterns in more
+            detail in the section "Categories of Design Patterns".
+          </p>
+
+          <p>
+            In this book, we will take a look at a number of popular JavaScript
+            design patterns and explore why certain patterns may be more
+            suitable for your projects than others. Remember that patterns can
+            be applied not just to vanilla JavaScript (i.e standard JavaScript
+            code), but also to abstracted libraries such as jQuery or dojo as
+            well. Before we begin, let’s look at the exact definition of a
+            "pattern" in software design.
+          </p>
+        </section>
+        <section class="main-section" id="What_is_a_pattern?">
+          <header class="display-md">What is a pattern?</header>
+          <p>
+            A pattern is a reusable solution that can be applied to commonly
+            occurring problems in software design - in our case - in writing
+            JavaScript web applications. Another way of looking at patterns are
+            as templates for how we solve problems - ones which can be used in
+            quite a few different situations.
+          </p>
+
+          <p>
+            So, why is it important to understand patterns and be familiar with
+            them? Design patterns have three main benefits
+          </p>
+
+          <ol>
+            <li>
+              <strong>Patterns are proven solutions:</strong> They provide solid
+              approaches to solving issues in software development using proven
+              techniques that reflect the experience and insights the developers
+              that helped define them bring to the pattern.
+            </li>
+            <li>
+              <strong>Patterns can be easily reused:</strong> A pattern usually
+              reflects an out of the box solution that can be adapted to suit
+              our own needs. This feature makes them quite robust.
+            </li>
+            <li>
+              <strong>Patterns can be expressive:</strong> When we look at a
+              pattern there’s generally a set structure and vocabulary to the
+              solution presented that can help express rather large solutions
+              quite elegantly.
+            </li>
+          </ol>
+
+          <p>
+            Patterns are not an exact solution. It’s important that we remember
+            the role of a pattern is merely to provide us with a solution
+            scheme. Patterns don’t solve all design problems nor do they replace
+            good software designers, however, they do support them. Next we’ll
+            take a look at some of the other advantages patterns have to offer
+          </p>
+
+          <ul>
+            <li>
+              <strong
+                >Reusing patterns assists in preventing minor issues that can
+                cause major problems in the application development
+                process.</strong
+              >
+              What this means is when code is built on proven patterns, we can
+              afford to spend less time worrying about the structure of our code
+              and more time focusing on the quality of our overall solution.
+              This is because patterns can encourage us to code in a more
+              structured and organized fashion avoiding the need to refactor it
+              for cleanliness purposes in the future.
+            </li>
+            <li>
+              <strong>
+                Patterns can provide generalized solutions which are documented
+                in a fashion that doesn't require them to be tied to a specific
+                problem.</strong
+              >
+              This generalized approach means that regardless of the application
+              (and in many cases the programming language) we are working with,
+              design patterns can be applied to improve the structure of our
+              code.
+            </li>
+            <li>
+              <strong
+                >Certain patterns can actually decrease the overall file-size
+                footprint of our code by avoiding repetition.</strong
+              >
+              By encouraging developers to look more closely at their solutions
+              for areas where instant reductions in repetition can be made, e.g.
+              reducing the number of functions performing similar processes in
+              favor of a single generalized function, the overall size of our
+              codebase can be decreased. This is also known as making code more
+              DRY.
+            </li>
+            <li>
+              <strong>
+                Patterns add to a developer's vocabulary, which makes
+                communication faster.
+              </strong>
+            </li>
+            <li>
+              <strong>
+                Patterns that are frequently used can be improved over time by
+                harnessing the collective experiences other developers using
+                those patterns contribute back to the design pattern
+                community.</strong
+              >
+              In some cases this leads to the creation of entirely new design
+              patterns whilst in others it can lead to the provision of improved
+              guidelines on how specific patterns can be best used. This can
+              ensure that pattern-based solutions continue to become more robust
+              than ad-hoc solutions may be.
+            </li>
+          </ul>
+
+          <h2 class="display-sm">We already use patterns everyday</h2>
+
+          <p>
+            To understand how useful patterns can be, let's review a very simple
+            element selection problem that the jQuery library solves for us.
+          </p>
+
+          <p>
+            Imagine that we have a script where for each DOM element found on a
+            page with class "foo" we wish to increment a counter. What's the
+            most efficient way to query for this collection of elements? Well,
+            there are a few different ways this problem could be tackled:
+          </p>
+
+          <ol>
+            <li>
+              Select all of the elements in the page and then store references
+              to them. Next, filter this collection and use regular expressions
+              (or another means) to only store those with the class "foo".
+            </li>
+            <li>
+              Use a modern native browser feature such as
+              <code>querySelectorAll()</code> to select all of the elements with
+              the class "foo".
+            </li>
+            <li>
+              Use a native feature such as
+              <code>getElementsByClassName()</code> to similarly get back the
+              desired collection.
+            </li>
+          </ol>
+
+          <p>
+            So, which of these options is the fastest? It's actually option 3.
+            by a factor of 8-10 times the alternatives. In a real-world
+            application however, 3. will not work in versions of Internet
+            Explorer below 9 and thus it's necessary to use 1. where both 2. and
+            3. aren't supported.
+          </p>
+
+          <p>
+            Developers using jQuery don't have to worry about this problem
+            however, as it's luckily abstracted away for us using the Facade
+            pattern. As we'll review in more detail later, this pattern provides
+            a simple set of abstracted interfaces (e.g <code>$el.css()</code>,
+            <code>$el.animate()</code>) to several more complex underlying
+            bodies of code. As we've seen, this means less time having to be
+            concerned about implementation level details.
+          </p>
+
+          <p>
+            Behind the scenes, the library simply opts for the most optimal
+            approach to selecting elements depending on what our current browser
+            supports and we just consume the abstraction layer.
+          </p>
+
+          <p>
+            We're probably all also familiar with jQuery's
+            <code>$("selector")</code>. This is significantly more easy to use
+            for selecting HTML elements on a page versus having to manually opt
+            for <code>getElementById()</code>,
+            <code>getElementsByClassName()</code>,
+            <code>getElementsByTagName()</code> and so on.
+          </p>
+
+          <p>
+            Although we know that <code>querySelectorAll()</code> attempts to
+            solve this problem, compare the effort involved in using jQuery's
+            Facade interfaces vs. selecting the most optimal selection paths
+            ourselves. There's no contest! Abstractions using patterns can offer
+            real-world value.
+          </p>
+
+          <p>
+            We'll be looking at this and more design patterns later on in the
+            book.
+          </p>
+        </section>
+        <section
+          class="main-section"
+          id='"Pattern"-ity_Testing,_Proto-Patterns_&_The_Rule_Of_Three'
+        >
+          <header class="display-md">
+            "Pattern"-ity Testing, Proto-Patterns & The Rule Of Three
+          </header>
+          <p>
+            Remember that not every algorithm, best practice or solution
+            represents what might be considered a complete pattern. There may be
+            a few key ingredients here that are missing and the pattern
+            community is generally wary of something claiming to be one unless
+            it has been heavily vetted. Even if something is presented to us
+            which appears to meet the criteria for a pattern, it should not be
+            considered one until it has undergone suitable periods of scrutiny
+            and testing by others.
+          </p>
+
+          <p>
+            Looking back upon the work by Alexander once more, he claims that a
+            pattern should both be a process and a "thing". This definition is
+            obtuse on purpose as he follows by saying that it is the process
+            which should create the "thing". This is a reason why patterns
+            generally focus on addressing a visually identifiable structure i.e
+            we should be able to visually depict (or draw) a picture
+            representing the structure that placing the pattern into practice
+            results in.
+          </p>
+
+          <p>
+            In studying design patterns, it's not irregular to come across the
+            term "proto-pattern". What is this? Well, a pattern that has not yet
+            been known to pass the "pattern"-ity tests is usually referred to as
+            a proto-pattern. Proto-patterns may result from the work of someone
+            that has established a particular solution that is worthy of sharing
+            with the community, but may not have yet had the opportunity to have
+            been vetted heavily due to its very young age.
+          </p>
+
+          <p>
+            Alternatively, the individual(s) sharing the pattern may not have
+            the time or interest of going through the "pattern"-ity process and
+            might release a short description of their proto-pattern instead.
+            Brief descriptions or snippets of this type of pattern are known as
+            patlets.
+          </p>
+
+          <p>
+            The work involved in fully documenting a qualified pattern can be
+            quite daunting. Looking back at some of the earliest work in the
+            field of design patterns, a pattern may be considered "good" if it
+            does the following:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Solves a particular problem:</strong>
+              Patterns are not supposed to just capture principles or
+              strategies. They need to capture solutions. This is one of the
+              most essential ingredients for a good pattern.
+            </li>
+            <li>
+              <strong>The solution to this problem cannot be obvious:</strong>
+              We can find that problem-solving techniques often attempt to
+              derive from well-known first principles. The best design patterns
+              usually provide solutions to problems indirectly - this is
+              considered a necessary approach for the most challenging problems
+              related to design.
+            </li>
+            <li>
+              <strong>The concept described must have been proven:</strong>
+              Design patterns require proof that they function as described and
+              without this proof the design cannot be seriously considered. If a
+              pattern is highly speculative in nature, only the brave may
+              attempt to use it.
+            </li>
+            <li>
+              <strong>It must describe a relationship:</strong>
+              In some cases it may appear that a pattern describes a type of
+              module. Although an implementation may appear this way, the
+              official description of the pattern must describe much deeper
+              system structures and mechanisms that explain its relationship to
+              code.
+            </li>
+          </ul>
+
+          <p>
+            We would be forgiven for thinking that a proto-pattern which fails
+            to meet guidelines isn't worth learning from, however, this is far
+            from the truth. Many proto-patterns are actually quite good. I’m not
+            saying that all proto-patterns are worth looking at, but there are
+            quite a few useful ones in the wild that could assist us with future
+            projects. Use best judgment with the above list in mind and you’ll
+            be fine in your selection process.
+          </p>
+
+          <p>
+            One of the additional requirements for a pattern to be valid is that
+            they display some recurring phenomenon. This is often something that
+            can be qualified in at least three key areas, referred to as the
+            rule of three. To show recurrence using this rule, one must
+            demonstrate:
+          </p>
+
+          <ol>
+            <li>
+              <strong>Fitness of purpose</strong>
+              - how is the pattern considered successful?
+            </li>
+            <li>
+              <strong>Usefulness</strong> - why is the pattern considered
+              successful?
+            </li>
+            <li>
+              <strong>Applicability</strong>
+              - is the design worthy of being a pattern because it has wider
+              applicability? If so, this needs to be explained. When reviewing
+              or defining a pattern, it is important to keep the above in mind.
+            </li>
+          </ol>
+        </section>
+        <section class="main-section" id="The_Structure_Of_A_Design_Pattern">
+          <header class="display-md">The Structure Of A Design Pattern</header>
+          <p>
+            You may be curious about how a pattern author might approach
+            outlining structure, implementation and purpose of a new pattern. A
+            pattern is initially presented in the form of a rule that
+            establishes a relationship between:
+          </p>
+
+          <ul>
+            <li>A <strong>context</strong></li>
+            <li>
+              A system of <strong>forces</strong> that arises in that context
+              and
+            </li>
+            <li>
+              A <strong>configuration</strong> that allows these forces to
+              resolve themselves in context
+            </li>
+          </ul>
+
+          <p>
+            With this in mind, let’s now take a look at a summary of the
+            component elements for a design pattern. A design pattern should
+            have a:
+          </p>
+
+          <ul>
+            <li>
+              <strong>Pattern name</strong> and a<strong> description </strong>
+            </li>
+            <li>
+              <strong>Context Outline</strong> – the contexts in which the
+              pattern is effective in responding to the users needs.
+            </li>
+            <li>
+              <strong>Problem statement</strong> – a statement of the problem
+              being addressed so we can understand the intent of the pattern.
+            </li>
+            <li>
+              <strong>Solution</strong> – a description of how the user’s
+              problem is being solved in an understandable list of steps and
+              perceptions.
+            </li>
+            <li>
+              <strong>Design</strong> – a description of the pattern’s design
+              and in particular, the user’s behavior in interacting with it
+            </li>
+            <li>
+              <strong>implementation</strong> – a guide to how the pattern would
+              be implemented
+            </li>
+            <li>
+              <strong>Examples</strong> – an implementation of the pattern in a
+              minimal form
+            </li>
+            <li>
+              <strong>Co-requisites</strong> – what other patterns may be needed
+              to support use of the pattern being described?
+            </li>
+            <li>
+              <strong>Relations</strong> – what patterns does this pattern
+              resemble? does it closely mimic any others?
+            </li>
+            <li>
+              <strong>Known usage</strong> – is the pattern being used in the
+              wild? If so, where and how?
+            </li>
+            <li>
+              <strong>Discussions</strong> – the team or author’s thoughts on
+              the exciting benefits of the pattern
+            </li>
+          </ul>
+
+          <p>
+            Design patterns are quite a powerful approach to getting all of the
+            developers in an organization or team on the same page when creating
+            or maintaining solutions. If considering working on a pattern of
+            your own, remember that although they may have a heavy initial cost
+            in the planning and write-up phases, the value returned from that
+            investment can be quite worth it. Always research thoroughly before
+            working on new patterns however, as you may find it more beneficial
+            to use or build on top of existing proven patterns than starting
+            afresh.
+          </p>
+        </section>
+        <section class="main-section" id="Writing_Design_Patterns">
+          <header class="display-md">Writing Design Patterns</header>
+          <p>
+            Although this book is aimed at those new to design patterns, a
+            fundamental understanding of how a design pattern is written can
+            offer a number of useful benefits. For starters, we can gain a
+            deeper appreciation for the reasoning behind why a pattern is
+            needed. We can also learn how to tell if a pattern (or
+            proto-pattern) is up to scratch when reviewing it for our own needs.
+          </p>
+
+          Writing good patterns is a challenging task. Patterns not only need to
+          (ideally) provide a substantial quantity of reference material for
+          end-users, but they also need to be able to defend why they are
+          necessary.
+
+          <p>
+            Having read the previous section on what a pattern is, we may think
+            that this in itself is enough to help us identify patterns we see in
+            the wild. This is actually not completely true. It's not always
+            clear if a piece of code we're looking at is following a set pattern
+            or just accidentally happens to appear like it does.
+          </p>
+
+          <p>
+            When we're looking at a body of code we think may be using a
+            pattern, we should consider writing down some of the aspects of the
+            code that we believe falls under a particular existing pattern or
+            set of patterns.
+          </p>
+
+          <p>
+            In many cases of pattern-analysis we can find that we're just
+            looking at code that follows good principles and design practices
+            that could happen to overlap with the rules for a pattern by
+            accident. Remember - solutions in which neither interactions nor
+            defined rules appear are not patterns.
+          </p>
+
+          <p>
+            If interested in venturing down the path of writing your own design
+            patterns I recommend learning from others who have already been
+            through the process and done it well. Spend time absorbing the
+            information from a number of different design pattern descriptions
+            and take in what’s meaningful to you.
+          </p>
+
+          <p>
+            Explore structure and semantics - this can be done by examining the
+            interactions and context of the patterns you are interested in so
+            you can identify the principles that assist in organizing those
+            patterns together in useful configurations.
+          </p>
+
+          <p>
+            Once we've exposed ourselves to a wealth of information on pattern
+            literature, we may wish to begin writing our pattern using an
+            existing format and see if we can brainstorm new ideas for improving
+            it or integrating our ideas in there.
+          </p>
+
+          <p>
+            An example of a developer that did this is in recent years is
+            Christian Heilmann, who took the existing Module pattern and made
+            some fundamentally useful changes to it to create the Revealing
+            Module pattern (this is one of the patterns covered later in this
+            book).
+          </p>
+
+          <p>
+            The following are tips I would suggest if interested in creating a
+            new design pattern:
+          </p>
+
+          <ul>
+            <li>
+              <strong>How practical is the pattern?:</strong> Ensure the pattern
+              describes proven solutions to recurring problems rather than just
+              speculative solutions which haven’t been qualified.
+            </li>
+            <li>
+              <strong>Keep best practices in mind:</strong> The design decisions
+              we make should be based on principles we derive from an
+              understanding of best practices.
+            </li>
+            <li>
+              <strong
+                >Our design patterns should be transparent to the user:</strong
+              >Design patterns should be entirely transparent to any type of
+              user-experience. They are primarily there to serve the developers
+              using them and should not force changes to behavior in the
+              user-experience that would not be incurred without the use of a
+              pattern.
+            </li>
+            <li>
+              <strong
+                >Remember that originality is not key in pattern design:</strong
+              >
+              When writing a pattern, we do not need to be the original
+              discoverer of the solutions being documented nor do you have to
+              worry about our design overlapping with minor pieces of other
+              patterns. If the approach is strong enough to have broad useful
+              applicability, it has a chance of being recognized as a valid
+              pattern.
+            </li>
+            <li>
+              <strong>Patterns need a strong set of examples:</strong> A good
+              pattern description needs to be followed by an equally strong set
+              of examples demonstrating the successful application of our
+              pattern. To show broad usage, examples that exhibit good design
+              principles are ideal.
+            </li>
+          </ul>
+
+          <p>
+            Pattern writing is a careful balance between creating a design that
+            is general, specific and above all, useful. Try to ensure that if
+            writing a pattern you cover the widest possible areas of application
+            and you should be fine. I hope that this brief introduction to
+            writing patterns has given you some insights that will assist your
+            learning process for the next sections of this book.
+          </p>
+        </section>
+
+        <section class="main-section" id="Anti-Patterns">
+          <header class="display-md">Anti-Patterns</header>
+
+          <p>
+            If we consider that a pattern represents a best practice, an
+            anti-pattern represents a lesson that has been learned. The term
+            anti-patterns was coined in 1995 by Andrew Koenig in the November
+            C++ Report that year, inspired by the GoF's book Design Patterns. In
+            Koenig’s report, there are two notions of anti-patterns that are
+            presented. Anti-Patterns:
+          </p>
+
+          <ul>
+            <li>
+              Describe a <em>bad</em> solution to a particular problem which
+              resulted in a bad situation occurring
+            </li>
+            <li>
+              Describe <em>how</em> to get out of said situation and how to go
+              from there to a good solution
+            </li>
+          </ul>
+
+          <p>
+            On this topic, Alexander writes about the difficulties in achieving
+            a good balance between good design structure and good context:
+          </p>
+
+          <blockquote>
+            “These notes are about the process of design; the process of
+            inventing physical things which display a new physical order,
+            organization, form, in response to function.…every design problem
+            begins with an effort to achieve fitness between two entities: the
+            form in question and its context. The form is the solution to the
+            problem; the context defines the problem”.
+          </blockquote>
+
+          <p>
+            While it’s quite important to be aware of design patterns, it can be
+            equally important to understand anti-patterns. Let us qualify the
+            reason behind this. When creating an application, a project’s
+            life-cycle begins with construction however once you’ve got the
+            initial release done, it needs to be maintained. The quality of a
+            final solution will either be good or bad, depending on the level of
+            skill and time the team have invested in it. Here good and bad are
+            considered in context - a ‘perfect’ design may qualify as an
+            anti-pattern if applied in the wrong context.
+          </p>
+
+          <p>
+            The bigger challenges happen after an application has hit production
+            and is ready to go into maintenance mode. A developer working on
+            such a system who hasn’t worked on the application before may
+            introduce a bad design into the project by accident. If said bad
+            practices are created as anti-patterns, they allow developers a
+            means to recognize these in advance so that they can avoid common
+            mistakes that can occur - this is parallel to the way in which
+            design patterns provide us with a way to recognize common techniques
+            that are useful.
+          </p>
+
+          <p>
+            To summarize, an anti-pattern is a bad design that is worthy of
+            documenting. Examples of anti-patterns in JavaScript are the
+            following:
+          </p>
+
+          <ul>
+            <li>
+              Polluting the global namespace by defining a large number of
+              variables in the global context
+            </li>
+            <li>
+              Passing strings rather than functions to either setTimeout or
+              setInterval as this triggers the use of
+              <code>eval()</code> internally.
+            </li>
+            <li>
+              Modifying the <code>Object</code> class prototype (this is a
+              particularly bad anti-pattern)
+            </li>
+            <li>Using JavaScript in an inline form as this is inflexible</li>
+            <li>
+              The use of document.write where native DOM alternatives such as
+              document.createElement are more appropriate. document.write has
+              been grossly misused over the years and has quite a few
+              disadvantages including that if it's executed after the page has
+              been loaded it can actually overwrite the page we're on, whilst
+              document.createElement does not.
+            </li>
+          </ul>
+
+          <p>
+            Knowledge of anti-patterns is critical for success. Once we are able
+            to recognize such anti-patterns, we're able to refactor our code to
+            negate them so that the overall quality of our solutions improves
+            instantly.
+          </p>
+        </section>
+
+        <section class="main-section" id="Categories_Of_Design_Pattern">
+          <header class="display-md">Categories Of Design Pattern</header>
+
+          <p>
+            A glossary from the well-known design book, Domain-Driven Terms,
+            rightly states that:
+          </p>
+
+          <blockquote>
+            “A design pattern names, abstracts, and identifies the key aspects
+            of a common design structure that make it useful for creating a
+            reusable object-oriented design. The design pattern identifies the
+            participating classes and their instances, their roles and
+            collaborations, and the distribution of responsibilities.
+          </blockquote>
+
+          <blockquote>
+            Each design pattern focuses on a particular object-oriented design
+            problem or issue. It describes when it applies, whether or not it
+            can be applied in view of other design constraints, and the
+            consequences and trade-offs of its use. Since we must eventually
+            implement our designs, a design pattern also provides sample ...
+            code to illustrate an implementation.
+          </blockquote>
+
+          <blockquote>
+            Although design patterns describe object-oriented designs, they are
+            based on practical solutions that have been implemented in
+            mainstream object-oriented programming languages ....”
+          </blockquote>
+
+          <p>
+            Design patterns can be broken down into a number of different
+            categories. In this section we’ll review three of these categories
+            and briefly mention a few examples of the patterns that fall into
+            these categories before exploring specific ones in more detail.
+          </p>
+
+          <h2 class="display-sm">Creational Design Patterns</h2>
+          <p>
+            Creational design patterns focus on handling object creation
+            mechanisms where objects are created in a manner suitable for the
+            situation we're working in. The basic approach to object creation
+            might otherwise lead to added complexity in a project whilst these
+            patterns aim to solve this problem by <em>controlling</em> the
+            creation process.
+          </p>
+
+          <p>
+            Some of the patterns that fall under this category are: Constructor,
+            Factory, Abstract, Prototype, Singleton and Builder.
+          </p>
+
+          <h2 class="display-sm">Structural Design Patterns</h2>
+          <p>
+            Structural patterns are concerned with object composition and
+            typically identify simple ways to realize relationships between
+            different objects. They help ensure that when one part of a system
+            changes, the entire structure of the system doesn't need to do the
+            same. They also assist in recasting parts of the system which don't
+            fit a particular purpose into those that do.
+          </p>
+          <p>
+            Patterns that fall under this category include: Decorator, Facade,
+            Flyweight, Adapter and Proxy.
+          </p>
+
+          <h2 class="display-sm">Behavioral Design Patterns</h2>
+          <p>
+            Behavioral patterns focus on improving or streamlining the
+            communication between disparate objects in a system.
+          </p>
+          <p>
+            Some behavioral patterns include: Iterator, Mediator, Observer and
+            Visitor.
+          </p>
+        </section>
+
+        <section class="main-section" id="Design_Pattern_Categorization">
+          <header class="display-md">Design Pattern Categorization</header>
+
+          <p>
+            In my early experiences of learning about design patterns, I
+            personally found the following table a very useful reminder of what
+            a number of patterns has to offer - it covers the 23 Design Patterns
+            mentioned by the GoF. The original table was summarized by Elyse
+            Nielsen back in 2004 and I've modified it where necessary to suit
+            our discussion in this section of the book.
+          </p>
+
+          <p>
+            I recommend using this table as reference, but do remember that
+            there are a number of additional patterns that are not mentioned
+            here but will be discussed later in the book.
+          </p>
+        </section>
+      </main>
+    </div>
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+    <script src="./script.js"></script>
+  </body>
+</html>
